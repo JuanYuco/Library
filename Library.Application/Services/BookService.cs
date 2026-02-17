@@ -24,12 +24,15 @@ namespace Library.Application.Services
                     return response;
                 }
 
-                var books = await bookRepository.GetAllAsync();
-                if (books.Count >= settings.Value.MaxBooks)
+                if (settings.Value.MaxBooks > 0)
                 {
-                    response.UserMessage = "Se ha alcanzado el límite de libros creados.";
-                    response.HttpCode = 409;
-                    return response;
+                    var books = await bookRepository.GetAllAsync();
+                    if (books.Count >= settings.Value.MaxBooks)
+                    {
+                        response.UserMessage = "Se ha alcanzado el límite de libros creados.";
+                        response.HttpCode = 409;
+                        return response;
+                    }
                 }
 
                 var author = await authorRepository.GetByIdAsync(request.AuthorId);

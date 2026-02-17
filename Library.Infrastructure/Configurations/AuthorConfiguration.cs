@@ -14,6 +14,9 @@ namespace Library.Infrastructure.Configurations
             builder.Property(c => c.BirthDate).IsRequired();
             builder.Property(c => c.BornCity).IsRequired().HasMaxLength(200);
             builder.Property(c => c.Email).IsRequired().HasMaxLength(200);
+
+            builder.HasIndex(c => c.Email).HasDatabaseName("UQ_Authors_Email")
+                .IsUnique();
         }
     }
 }
