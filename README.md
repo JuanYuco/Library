@@ -18,6 +18,7 @@ Esta construido con una arquitectura MVC, cada agrupación de vistas tiene su co
 - Backend: .NET 9
 - Web: Asp NET CORE MVC.
 - Pruebas: xUnit y Moq.
+- Documentación: Swagger.
 
 ## Iniciar el proyecto.
 - Ejecutar el archivo `script.sql` ubicado en la carpeta `Database` del proyecto Library.Infrastructure en una isntancia de SQL Server.
@@ -26,4 +27,4 @@ Esta construido con una arquitectura MVC, cada agrupación de vistas tiene su co
 - Configurar la url base del backend en el `appsettings.json` del proyecto Library.Web, la llave de la propiedad es `ApiBaseUrl`.
 - Desde visual estudio configurar como proyecto de inicio múltiple y seleccionar los proyectos Library.Api y Library.Web.
 
-
+Una vez iniciado el proyecto Backend podra visualizar una pequeña documentación de los endpoints creados.
