@@ -19,4 +19,11 @@ Esta construido con una arquitectura MVC, cada agrupación de vistas tiene su co
 - Web: Asp NET CORE MVC.
 - Pruebas: xUnit y Moq.
 
+## Iniciar el proyecto.
+- Ejecutar el archivo `script.sql` ubicado en la carpeta `Database` del proyecto Library.Infrastructure en una isntancia de SQL Server.
+- Configurar la cadena de conexión en los secretos de usuario, puede tomar de referencia la estructura agregada en el `appsettings.json` del proyecto Library.Api.
+- Configurar el máximo de libros permitidos en el `appsettings.json` del proyecto Library.Api, la propiedad se encuentra dentro de la sección `LibrarySettings` con la llave `MaxBooks`
+- Configurar la url base del backend en el `appsettings.json` del proyecto Library.Web, la llave de la propiedad es `ApiBaseUrl`.
+- Desde visual estudio configurar como proyecto de inicio múltiple y seleccionar los proyectos Library.Api y Library.Web.
+
 
