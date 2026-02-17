@@ -1,0 +1,53 @@
+﻿@using Library.Web.Models.ViewModels.Author
+
+@model IndexViewModel
+@{
+    ViewData["Title"] = "Autores";
+}
+
+<div class="d-flex flex-column justify-content-center">
+    <h4 class="align-self-center">Autores</h4>
+    @if (TempData["userMessage"] != null)
+    {
+        <label class="text-bg-success">@TempData["userMessage"]</label>
+    }
+
+    @if (TempData["errorMessage"] != null)
+    {
+        <label class="text-bg-danger">@TempData["errorMessage"]</label>
+    }
+    
+    <a asp-action="Create" class="btn btn-primary w-25 mb-1">Crear autor</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Fecha de Nacimiento</th>
+                <th>Ciudad</th>
+                <th>Email</th>
+                <th>Acción</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.Authors.Count > 0)
+            {
+                foreach (var author in Model.Authors)
+                {
+                    <tr>
+                        <td>@author.FullName</td>
+                        <td>@author.BirthDate.ToString()</td>
+                        <td>@author.BornCity</td>
+                        <td>@author.Email</td>
+                        <td>
+                            <form asp-action="Delete" asp-route-id="@author.Id" method="post">
+                                <button type="submit" class="btn btn-sm btn-outline-danger">
+                                    Eliminar
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
